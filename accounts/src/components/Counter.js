@@ -31,12 +31,40 @@ class contar extends React.Component {
 
     return (
       <React.Fragment>
-        <button onClick={enClick}>Saluda</button>
-
-        <h1>{this.state.counter}</h1>
-        <button onClick={this.sum.bind(this)}> aumentame </button>
-        <button onClick={this.res.bind(this)}>bajame</button>
-        <button onClick={this.update.bind(this)}>actualizame</button>
+        <div className="card" style={{ width: " 18rem" }}>
+          <div className="card-img-top mx-auto text-center">
+            <h1> {this.state.counter}</h1>
+          </div>
+          <div className="card-body">
+            <h5 className="card-title">Soy la app de accounts</h5>
+            <p className="card-text">
+              El contador lo maneja Utils y los metodos de aumentar, disminuir y
+              actualizar estan tambien en utils lo unico que manejo local es el
+              estado
+            </p>
+            <button
+              className="btn btn-success m-3"
+              onClick={this.sum.bind(this)}
+            >
+              aumentame
+            </button>
+            <button
+              className="btn btn-danger m-3"
+              onClick={this.res.bind(this)}
+            >
+              bajame
+            </button>
+            <button
+              className="btn btn-warning  m-3"
+              onClick={this.update.bind(this)}
+            >
+              actualizame
+            </button>
+            <button onClick={enClick} className="btn btn-primary">
+              Saluda
+            </button>
+          </div>
+        </div>
       </React.Fragment>
     );
   }

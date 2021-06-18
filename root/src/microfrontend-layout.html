@@ -23,15 +23,89 @@
 
   <main>
     <route path="accounts">
-      <h2 class="color">SOY LA APP 1</h2>
-      <application name="@orgname/accounts"></application>
-      <h2>A PARTIR DE ACA SOY LA APP 2</h2>
-      <application name="@orgname/hijo"></application>
+      <div class="container-fluid m-3">
+        <h5 class="card-title">Les Presento a la app de accounts</h5>
+        <div class="align-middle">
+          <application name="@orgname/accounts"></application>
+        </div>
+        <h5 class="card-title mt-5">Les Presento a la app de hijo</h5>
+
+        <application name="@orgname/hijo"></application>
+      </div>
+    </route>
+    <route path="nav">
+      <div class="container-fluid m-3">
+        <h2 class="card-title">sobre nav</h2>
+        <p>
+          El titulo <b>Titulo en Utils</b> es un componente de react exportado
+          desde utils como es bien sabido una app tipo utils puede exportar
+          tanto funcionalidad como componentes visuales entonces en este caso
+          exportamos un componente visual que es un texto, pero puede ser lo que
+          querramos. Como utils esta pensado mas para exportar funcionalidad que
+          componentes visuales se tienen que hacer unos cambios en la
+          configuracion de babel en webpack para que se pueda transpilar el
+          codigo de jsx (react) a js
+        </p>
+        <h2 class="card-title">Sobre esta app</h2>
+        <p>
+          Esta app utiliza un layout que da single-spa esto es muy bueno cuando
+          queremos tener cosas como navbars (que es una app que se mostrará
+          siempre) como la que tenemos en esta página ademas de que manejamos el
+          enrutamiento de una forma un poco mas visual que sin este layaout por
+          ejemplo, esto que estas leyendo no esta en ninguna app pero como tengo
+          el layout de single-spa puedo adornar con algunas cosas un poco mas
+          estaticas la apariencia de mi página.
+        </p>
+        <h5 class="card-title">Dependencias compartidas</h5>
+        <p>
+          Esta app a su ves utiliza para las dependencias compartidas algo
+          conocimo como importmap que no son mas que archivos estaticos los
+          cuales importamos desde el ejs, se recomienda hacer importmaps de
+          bibliotecas grandes como react, angular o vue, pero no de bibliotecas
+          pequeñas ya que esto no nos traeria todos los beneficios que
+          esperamos, es decir el beneficio obtenido practicamente ni se notara.
+        </p>
+        <h5 class="card-title">Cosas por hacer</h5>
+        <p>
+          Compartir dependencias por medio de Module Federation Plugin, en su
+          página mencionan que se puede hacer pero es una caracteristica que aun
+          no está muy estudiada y que Module Federation Plugin está en cambio
+          por lo que no se profundiza en como hacerlo. <br />
+        </p>
+        <h5 class="card-title">Recomendaciones</h5>
+        <p>
+          Se recomienda que cada microfrontend sea lo menos acoplado a los demas
+          y que cuando se compartan componentes que sea por medio de parcels ya
+          que estos puede adaptarse a cualqueir framework, por ejemplo si
+          comparto un componente de react para utilizarlo en una app angular no
+          seran compatibles, pero si comparto un componente como un parcel este
+          si se puede mapear entre los frameworks, en esta app se abarcan ambos
+          casos.
+        </p>
+        <p>
+          La información que se compartirá en varios microfrontends como tokens
+          o API´S se espera que se comparta por medio de una app de utils ya que
+          asi se maneja de una forma centralizada evitando duplicar código.
+        </p>
+        <h5 class="card-title">Lazy load</h5>
+        <p>
+          Si utilizamos los metodos de Lazy Load de los frameworks SPA pues ya
+          lo tendriamos, sin embargo hay un metodo con los parcels que es por
+          medio de loadRootComponent el cual retorna una promesa con el
+          compoente a renderizar.
+        </p>
+      </div>
     </route>
     <route default>
-      <application name="@orgname/navigation"></application>
-      <h2>Soy otra instancia de app 2</h2>
-      <application name="@orgname/hijo"></application>
+      <div class="container-fluid m-3">
+        <h5 class="card-title mt-5">Les Presento a la app de hijo</h5>
+        <application name="@orgname/hijo"></application>
+      </div>
+      <!-- El navigation de abajo no lo toma en cuenta porque solo carga una app a la vez 
+      cuando estoy aca se recarga peeero esta mal porque agarra la ultima app que se pone peeero
+      solo una
+      -->
+      <!-- <application name="@orgname/navigation"></application> -->
     </route>
   </main>
 </single-spa-router>

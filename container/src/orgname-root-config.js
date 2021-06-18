@@ -10,8 +10,8 @@ registerApplication({
 });
 
 registerApplication({
-  name: "@orgname/accounts",
-  app: () => System.import("@orgname/accounts"),
+  name: "@orgname/mfp",
+  app: () => System.import("@orgname/mfp"),
   activeWhen: ["/"],
 });
 
