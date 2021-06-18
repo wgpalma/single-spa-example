@@ -51,6 +51,18 @@ export default function Root(props) {
                   Hijo y accounts SPA
                 </a>
               </li>
+              <li className="nav-item">
+                <a
+                  className="nav-link"
+                  href="/navegacion"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToUrl("/navegacion");
+                  }}
+                >
+                  Navegación
+                </a>
+              </li>
             </ul>
           </div>
         </div>
