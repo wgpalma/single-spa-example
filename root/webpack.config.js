@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (webpackConfigEnv, argv) => {
   const orgName = "root";
+
   const defaultConfig = singleSpaDefaults({
     orgName,
     projectName: "root-config",
@@ -14,6 +15,9 @@ module.exports = (webpackConfigEnv, argv) => {
 
   return merge(defaultConfig, {
     // modify the webpack config however you'd like to by adding to this object
+    devServer: {
+      historyApiFallback: true,
+    },
     plugins: [
       new HtmlWebpackPlugin({
         inject: false,

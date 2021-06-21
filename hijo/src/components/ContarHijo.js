@@ -1,5 +1,5 @@
 import React from "react";
-import { contador, sumar, restar, actual, addToListener } from "@orgname/utils";
+import { sumar, restar, actual, addToListener } from "@orgname/utils";
 import Parcel from "single-spa-react/parcel";
 import "./styles.css";
 class contarHijo extends React.Component {
